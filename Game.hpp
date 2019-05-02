@@ -1,0 +1,26 @@
+#ifndef GAME_H
+#define GAME_H
+#include "Board.hpp"
+#include <string>
+
+// TicTacToe
+namespace ttt {
+
+	class Game {
+	private:
+		std::string player;
+		bool gameOver;
+		//ttt::Board board;
+		Board board;	
+	public:
+		Game(); // The game constructor
+		bool checkWin();
+		bool checkTie(); 
+		void nextTurn(); 
+		int  getPlayerType();
+		int  selectPosition();
+	};	
+
+}
+
+#endif
