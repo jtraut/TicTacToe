@@ -43,48 +43,57 @@ namespace ttt {
 		printBoard(); // Show an empty board in terminal
 	}
 
+	// Places new piece on board. Returns true if successful.
 	bool Board::placePiece(int type, int location) {
-			if (board[location] != EMPTY) {
-				return false;
-			}
-			if (type != X && type != O) {
-				return false;
-			}
+		// adjust location to index values
+		location -= 1;
 
-			string player = "X";
-			if (type == O) {
-				player = "O";
-			} 
+		if (board[location] != EMPTY) {
+			cout << "Slot " << location+1 << " is already taken." << endl;
+			return false;
+		}
+		if (type != X && type != O) {
+			cout << "Invalid piece type: " << type << endl;
+			return false;
+		}
 
-			cout << "Player " << player << " places a piece." << endl;
+		string player = "X";
+		if (type == O) {
+			player = "O";
+		} 
 
-			board[location] = type;
+		cout << "Player " << player << " places a piece." << endl;
 
-			printBoard(); // show updated board in terminal 
+		board[location] = type;
 
-			return true;
+		printBoard(); // show updated board in terminal 
+
+		return true;
 	}
 
 	int * Board::getBoard() {
 		return board;
 	}
 
+	// Print board matrix flipped s.t. resembles num pad on keyboard 
 	void Board::printBoard() {
-		for (int i = 0; i < SIZE; i++) {
-			string value = "-";
-			// Determine correct value 
-			if (board[i] == O) {
-				value = "O";
-			} else if (board[i] == X) {
-				value = "X";
-			}
+		for (int j = 2; j >= 0; j--) {
+			for (int i = j*3; i < j*3+3; i++) {
+				string value = "-";
+				// Determine correct value 
+				if (board[i] == O) {
+					value = "O";
+				} else if (board[i] == X) {
+					value = "X";
+				}
 
-			// Check for end row 
-			if ((i+1) % 3 == 0) {
-				cout << value << endl;				
-			} else {
-				cout << value << "|";
-			}
+				// Check for end row 
+				if ((i+1) % 3 == 0) {
+					cout << value << endl;				
+				} else {
+					cout << value << "|";
+				}
+			}			
 		}
 	}
 
