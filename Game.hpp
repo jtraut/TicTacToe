@@ -9,7 +9,6 @@ namespace ttt {
 	class Game {
 	private:
 		std::string player;
-		bool gameOver;
 		Board board;	
 	public:
 		Game(); // The game constructor
@@ -17,7 +16,7 @@ namespace ttt {
 		bool checkTie(); 
 		void nextTurn(); 
 		int  getPlayerType();
-		int  selectPosition();
+		void selectPosition();
 	};	
 
 }

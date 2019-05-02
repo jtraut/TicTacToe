@@ -80,7 +80,7 @@ int Game::getPlayerType() {
 
 // Prompt user input for next box selection. 
 // Will continue to prompt user until a successful input.
-int Game::selectPosition() {
+void Game::selectPosition() {
 	cout << "Choose position 1-9 for next piece." << endl;
 	
 	bool selectionMade = false;
@@ -107,5 +107,5 @@ int Game::selectPosition() {
 		}
 	}
 
-	return pos;
+	return;
 }
