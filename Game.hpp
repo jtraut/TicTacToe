@@ -10,7 +10,6 @@ namespace ttt {
 	private:
 		std::string player;
 		bool gameOver;
-		//ttt::Board board;
 		Board board;	
 	public:
 		Game(); // The game constructor

@@ -70,6 +70,6 @@ void Board::printBoard() {
 			}
 		}			
 	}
-
+	// Add empty line space after each print 
 	cout << endl;
 }
